@@ -16,19 +16,20 @@ class Cmember extends CI_Controller{
 		$this->view_member();
 	}
 	
-	function member(){
+	function form_member(){
 		$this->load->view('VaddMember');
 	}
 	
 	function add_member(){	
 		$name = $this->input->post('name_member');
+		$sex = $this->input->post('sex');
 		$address= $this->input->post('address_member');
 		$data = array(
 		'name' => $name,
-		'address' => $address
+		'address' => $address,
+		'sex' => $sex
 		);
 		header('Location: ../');
-		
 		$this->Mmember->createMember($data);
 	}
 	
@@ -38,15 +39,31 @@ class Cmember extends CI_Controller{
 		$this->load->view('Vmember', $data);
 	}
 	
-	function edit_member(){
+	function edit_member($id){
 		$this->load->model('Mmember');
-		$data['member_edit'] = $this->Mmember->getMember();
+		$data['member_edit'] = $this->Mmember->getMemberOne($id);
 		$this->load->view('VeditMember', $data);
 	}
+	
+	function edit_memberOne(){	
+		$id = $this->input->post('id');
+		$name = $this->input->post('name_member');
+		$sex = $this->input->post('sex');
+		$address= $this->input->post('address_member');
+		$data = array(
+		'name' => $name,
+		'address' => $address,
+		'sex' => $sex
+		);
+		header('Location: ../');
+		$this->Mmember->editMember($id, $data);
+	}
+	
 	
 	function delete_member($id){
 		$this->load->model('Mmember');
 		$this->Mmember->deleteMember($id);
+		header('Location: ../');
 	}
 	
 }
