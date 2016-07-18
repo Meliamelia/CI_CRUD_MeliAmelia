@@ -10,6 +10,11 @@
 						<td><input type="text" name="name_member"></td>
 					</tr>
 					<tr>
+						<td>Sex</td>
+						<td></td>
+						<td><input type="radio" name="sex" value="M">Male<input type="radio" name="sex" value="F">Female</td>
+					</tr>
+					<tr>
 						<td>Address</td>
 						<td></td>
 						<td><textarea name="address_member"></textarea></td>
