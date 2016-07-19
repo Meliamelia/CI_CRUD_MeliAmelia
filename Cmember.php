@@ -6,12 +6,9 @@ class Cmember extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
-		//$this->load->library('form_validation', 'session');
 		$this->load->model('Mmember', '', TRUE);	
 	}
 	
-	
-
 	function index(){
 		$this->view_member();
 	}
@@ -22,12 +19,19 @@ class Cmember extends CI_Controller{
 	
 	function add_member(){	
 		$name = $this->input->post('name_member');
-		$sex = $this->input->post('sex');
+		$email = $this->input->post('email_member');
+		$password = $this->input->post('pass_member');
+		$position = $this->input->post('position_member');
+		$sex = $this->input->post('sex_member');
 		$address= $this->input->post('address_member');
 		$data = array(
 		'name' => $name,
-		'address' => $address,
-		'sex' => $sex
+		'email' => $email,
+		'pass' => $password,
+		'position' => $position,
+		'sex' => $sex,
+		'address' => $address
+		
 		);
 		header('Location: ../');
 		$this->Mmember->createMember($data);
@@ -48,12 +52,18 @@ class Cmember extends CI_Controller{
 	function edit_memberOne(){	
 		$id = $this->input->post('id');
 		$name = $this->input->post('name_member');
-		$sex = $this->input->post('sex');
+		$email = $this->input->post('email_member');
+		$password = $this->input->post('pass_member');
+		$position = $this->input->post('position_member');
+		$sex = $this->input->post('sex_member');
 		$address= $this->input->post('address_member');
 		$data = array(
 		'name' => $name,
-		'address' => $address,
-		'sex' => $sex
+		'email' => $email,
+		'pass' => $password,
+		'position' => $position,
+		'sex' => $sex,
+		'address' => $address
 		);
 		header('Location: ../');
 		$this->Mmember->editMember($id, $data);
