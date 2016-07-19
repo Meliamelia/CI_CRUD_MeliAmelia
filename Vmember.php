@@ -8,6 +8,9 @@
 			<tr>
 				<td>No</td>
 				<td>Name</td>
+				<td>Email</td>
+				<td>Password</td>
+				<td>Job Title</td>
 				<td>Sex</td>
 				<td>Address</td>
 				<td>Action</td>
@@ -20,6 +23,9 @@
 			<tr>
 				<td><?php echo $no;?></td>
 				<td><?php echo $record->name;?></td>
+				<td><?php echo $record->email;?></td>
+				<td><?php echo $record->pass;?></td>
+				<td><?php echo $record->position;?></td>
 				<td>
 					<?php
 						switch($sex){
