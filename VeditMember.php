@@ -4,28 +4,28 @@
 			<body>
 			<form method="post" name="edit_member" action="<?php echo base_url();?>Cmember/edit_memberOne">
 				<table>
-					<?php foreach($member_edit as $record){ ?>
+					
 					<tr>
 						<td>name</td>
 						<td></td>
-						<td><input type="hidden" name="id" value="<?php echo $record->id;?>"><input type="text" name="name_member" value="<?php echo $record->name; ?>"></td>
+						<td><input type="hidden" name="id" value="<?php echo $member_edit[0]->id;?>"><input type="text" name="name_member" value="<?php echo $member_edit[0]->name; ?>"></td>
 					</tr>
 					<tr>
 						<td>Email</td>
 						<td></td>
-						<td><input type="email" name="email_member" value="<?php echo $record->email; ?>"></td>
+						<td><input type="email" name="email_member" value="<?php echo $member_edit[0]->email; ?>"></td>
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td></td>
-						<td><input type="password" name="pass_member" value="<?php echo $record->pass; ?>"></td>
+						<td><input type="password" name="pass_member" value="<?php echo $member_edit[0]->pass; ?>"></td>
 					</tr>
 					<tr>
 						<td>Position</td>
 						<td></td>
 						<td>
 							<select name="position_member">
-								<option value="<?php echo $record->position;?>"><?php echo $record->position;?></option>
+								<option value="<?php echo $member_edit[0]->position;?>"><?php echo $member_edit[0]->position;?></option>
 								<option value="Senior Web Developer">Senior Web Developer</option>
 								<option value="Junior Web Developer">Junior Web Developer</option>
 								<option value="Senior Android Developer">Senior Android Developer</option>
@@ -39,19 +39,19 @@
 						<td>Sex</td>
 						<td></td>
 						<td>
-							<input type="radio" id="M" name="sex_member" value="M" <?php echo set_radio('sex', 'M', $record->sex == 'M'); ?>  />Male</label>
-							<input type="radio" id="F" name="sex_member" value="F" <?php echo set_radio('sex', 'F', $record->sex == 'F'); ?>  />Female</label>
+							<input type="radio" id="M" name="sex_member" value="M" <?php echo set_radio('sex', 'M', $member_edit[0]->sex == 'M'); ?>  />Male</label>
+							<input type="radio" id="F" name="sex_member" value="F" <?php echo set_radio('sex', 'F', $member_edit[0]->sex == 'F'); ?>  />Female</label>
 						</td>
 					</tr>
 					<tr>
 						<td>Address</td>
 						<td></td>
-						<td><textarea name="address_member"><?php echo $record->address; ?></textarea></td>
+						<td><textarea name="address_member"><?php echo $member_edit[0]->address; ?></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="3"><input type="submit" name="submit" value="Save"></td>
 					</tr>
-					<?php } ?>
+					
 				</table>
 			</form>
 			
